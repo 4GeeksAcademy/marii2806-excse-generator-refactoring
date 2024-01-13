@@ -4,7 +4,6 @@ import "./style.css";
 
 window.onload = () => {
   document.querySelector("#excuse").innerHTML = generateExcuse();
-  console.log("Hello Rigo from the console!");
 };
 
 let generateExcuse = () => {
@@ -19,18 +18,32 @@ let generateExcuse = () => {
     "while I was praying"
   ];
 
-  let whoIndx = Math.floor(Math.random() * who.length);
-  let actionIndx = Math.floor(Math.random() * action.length);
-  let whatIndx = Math.floor(Math.random() * what.length);
-  let whenIndx = Math.floor(Math.random() * when.length);
+  function newExcuse(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
 
   return (
-    who[whoIndx] +
+    newExcuse(who) +
     " " +
-    action[actionIndx] +
+    newExcuse(action) +
     " " +
-    what[whatIndx] +
+    newExcuse(what) +
     " " +
-    when[whenIndx]
+    newExcuse(when)
   );
+
+  // let whoIndx = Math.floor(Math.random() * who.length);
+  // let actionIndx = Math.floor(Math.random() * action.length);
+  // let whatIndx = Math.floor(Math.random() * what.length);
+  // let whenIndx = Math.floor(Math.random() * when.length);
+
+  // return (
+  //   who[whoIndx] +
+  //   " " +
+  //   action[actionIndx] +
+  //   " " +
+  //   what[whatIndx] +
+  //   " " +
+  //   when[whenIndx]
+  // );
 };
